@@ -7,8 +7,8 @@ Public LB score:
 	-Xgboost 0.5112
  
 Private LB score: 
-	-LightGBM 0.5074 (127/2500)
-	-Xgboost 0.5098 (180/2500)
+	-LightGBM 0.5074 (130/2500)
+	-Xgboost 0.5094 (170/2500)
 
 
 To Run:
