@@ -12,7 +12,9 @@ Private LB score:
 
 
 To Run:
-	-unzip all files from db directory into db directory
+	-unzip all files from db directory into db directory with original names
+	-open settings.py and change line (path = '/home/nikita/tools/PycharmProjects/presentation_project') 
+	    into (path='your folder which contains presentation_project') 
 	-run best_model.py to get same result.
 
 
