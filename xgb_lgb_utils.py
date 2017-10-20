@@ -15,9 +15,9 @@ from settings import *
 def xgb_cv(train_df, target_df, xgb_params):
     dtrain = xgb.DMatrix(csr_matrix(train_df), label=target_df)
 
-    res = xgb.cv(xgb_params, dtrain, num_boost_round=100000, folds=my_cv,
-                 early_stopping_rounds=200, maximize=False,
-                 verbose_eval=200, show_stdv=True)
+    res = xgb.cv(xgb_params, dtrain, num_boost_round=100000,
+                 folds=list(my_cv.split(train_df, target_df)),
+                 early_stopping_rounds=200, verbose_eval=200, show_stdv=True)
 
     best_round = res.shape[0] - 1
 
