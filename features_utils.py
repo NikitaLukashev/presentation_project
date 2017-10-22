@@ -67,7 +67,7 @@ def get_count(df, field, by_field):
 def get_distinct_count(df, field, by_field):
     df[field].fillna('xxx', inplace=True)
     temp = df[[by_field, field]]
-    temp.drop_duplicates(inplace=True)
+    temp = temp.drop_duplicates(inplace=False)
     temp = temp.groupby(by_field).count()[[field]].reset_index()
     temp.columns = [by_field, 'distinct_count_of_' + field + '_by_' + by_field]
     df = df.merge(temp, on=by_field, how='left')
