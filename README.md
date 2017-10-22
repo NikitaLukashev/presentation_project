@@ -4,11 +4,11 @@ My best single LightGBM and Xgboost for "Two Sigma Connect: Rental Listing Inqui
 
 Public LB score: 
 	-LightGBM 0.5076
-	-Xgboost 0.5112
+	-Xgboost 0.5090
  
 Private LB score: 
 	-LightGBM 0.5074 (130/2500)
-	-Xgboost 0.5094 (170/2500)
+	-Xgboost 0.5082 (140/2500)
 
 
 To Run:

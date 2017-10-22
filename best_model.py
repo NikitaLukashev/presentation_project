@@ -378,9 +378,9 @@ if __name__ == '__main__':
         'is_sparse':True
     }
 
-    #best_lgb_round = lgb_cv(train, target, lgb_params)
-    #preds = get_lgb_prediction(best_lgb_round, lgb_params, train, test, target)
-    #get_submission(preds, 'lgb')
+    best_lgb_round = lgb_cv(train, target, lgb_params)
+    preds = get_lgb_prediction(best_lgb_round, lgb_params, train, test, target)
+    get_submission(preds, 'lgb')
 
     # [100] 0.7522+0.0013
     # [200] 0.6407+0.002
@@ -395,8 +395,8 @@ if __name__ == '__main__':
         'nthread': 4,
         'colsample_bytree': 0.3,
         'silent': 1,
-        'subsample': 1,#d
-        'learning_rate': 0.06,#0.06
+        'subsample': 1,
+        'learning_rate': 0.03,#0.03
         'max_depth': 6,  # 6
         'min_child_weight': 7,
         'lambda': 1,
@@ -407,6 +407,6 @@ if __name__ == '__main__':
     preds = get_xgb_prediction(best_xgb_round, xgb_params, train, test, target)
     get_submission(preds, 'xgb')
 
-    # [100] 0.5428+0.002
-    # [200] 0.5181+0.0027
-    # 5 fold-CV of xgboost : 0.5039+0.0035 @ seed=0, eta=0.06 , bestRound=641
+    # [100] 0.5886+0.0022
+    # [200] 0.5432+0.0025
+    # 5 fold-CV of xgboost : 0.503+0.0035 @ seed=0, eta=0.03 , bestRound=1275
