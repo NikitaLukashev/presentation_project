@@ -186,78 +186,78 @@ if __name__ == '__main__':
     # other features
     train_test['has_description'] = train_test['description'].apply(
         lambda x: 0 if len(x.strip()) == 0 else 1)
-    train_test = get_count(train_test, 'created', 'building_id')
-    train_test = get_count(train_test, 'created', 'manager_id')
-    train_test = get_count(train_test, 'listing_id', 'created')
+    train_test = get_count(train_test, 'created', ['building_id'])
+    train_test = get_count(train_test, 'created', ['manager_id'])
+    train_test = get_count(train_test, 'listing_id', ['created'])
 
     # agregate by building_id
-    train_test = get_mean(train_test, 'price', 'building_id')
-    train_test = get_median(train_test, 'price', 'building_id')
-    train_test['price_divided_median_of_price_by_building_id'] = train_test['price'] / train_test[
-        'median_of_price_by_building_id']
-    train_test = get_std(train_test, 'price', 'building_id')
+    train_test = get_mean(train_test, 'price', ['building_id'])
+    train_test = get_median(train_test, 'price', ['building_id'])
+    train_test['price_divided_median_of_price_by_[\'building_id\']'] = train_test['price'] / train_test[
+        'median_of_price_by_[\'building_id\']']
+    train_test = get_std(train_test, 'price', ['building_id'])
 
     # other features
-    train_test = get_median(train_test, 'price', 'bedrooms')
+    train_test = get_median(train_test, 'price', ['bedrooms'])
     train_test['price_divided_median_of_price_by_bed'] = train_test['price'] / train_test[
-        'median_of_price_by_bedrooms']
-    train_test = get_median(train_test, 'price', 'bathrooms')
+        'median_of_price_by_[\'bedrooms\']']
+    train_test = get_median(train_test, 'price', ['bathrooms'])
 
     # agregate by date
-    train_test = get_mean(train_test, 'price', 'Month')
+    train_test = get_mean(train_test, 'price', ['Month'])
 
     # agregate by manager_id
-    train_test = get_median(train_test, 'price', 'manager_id')
-    train_test = get_sum(train_test, 'price', 'manager_id')
-    train_test = get_std(train_test, 'price', 'manager_id')
+    train_test = get_median(train_test, 'price', ['manager_id'])
+    train_test = get_sum(train_test, 'price', ['manager_id'])
+    train_test = get_std(train_test, 'price', ['manager_id'])
 
-    train_test = get_mean(train_test, 'bathrooms', 'manager_id')
-    train_test = get_median(train_test, 'bathrooms', 'manager_id')
-    train_test = get_sum(train_test, 'bathrooms', 'manager_id')
-    train_test = get_std(train_test, 'bathrooms', 'manager_id')
+    train_test = get_mean(train_test, 'bathrooms', ['manager_id'])
+    train_test = get_median(train_test, 'bathrooms', ['manager_id'])
+    train_test = get_sum(train_test, 'bathrooms', ['manager_id'])
+    train_test = get_std(train_test, 'bathrooms', ['manager_id'])
 
-    train_test = get_mean(train_test, 'bedrooms', 'manager_id')
-    train_test = get_median(train_test, 'bedrooms', 'manager_id')
-    train_test = get_std(train_test, 'bedrooms', 'manager_id')
+    train_test = get_mean(train_test, 'bedrooms', ['manager_id'])
+    train_test = get_median(train_test, 'bedrooms', ['manager_id'])
+    train_test = get_std(train_test, 'bedrooms', ['manager_id'])
 
-    train_test = get_mean(train_test, 'latitude', 'manager_id')
-    train_test = get_median(train_test, 'latitude', 'manager_id')
-    train_test = get_std(train_test, 'latitude', 'manager_id')
+    train_test = get_mean(train_test, 'latitude', ['manager_id'])
+    train_test = get_median(train_test, 'latitude', ['manager_id'])
+    train_test = get_std(train_test, 'latitude', ['manager_id'])
 
-    train_test = get_mean(train_test, 'longitude', 'manager_id')
-    train_test = get_median(train_test, 'longitude', 'manager_id')
-    train_test = get_sum(train_test, 'longitude', 'manager_id')
-    train_test = get_std(train_test, 'longitude', 'manager_id')
+    train_test = get_mean(train_test, 'longitude', ['manager_id'])
+    train_test = get_median(train_test, 'longitude', ['manager_id'])
+    train_test = get_sum(train_test, 'longitude', ['manager_id'])
+    train_test = get_std(train_test, 'longitude', ['manager_id'])
 
-    train_test = get_mean(train_test, 'Day', 'manager_id')
-    train_test = get_median(train_test, 'Day', 'manager_id')
-    train_test = get_sum(train_test, 'Day', 'manager_id')
-    train_test = get_std(train_test, 'Day', 'manager_id')
+    train_test = get_mean(train_test, 'Day', ['manager_id'])
+    train_test = get_median(train_test, 'Day', ['manager_id'])
+    train_test = get_sum(train_test, 'Day', ['manager_id'])
+    train_test = get_std(train_test, 'Day', ['manager_id'])
 
-    train_test = get_mean(train_test, 'hour', 'manager_id')
-    train_test = get_median(train_test, 'hour', 'manager_id')
-    train_test = get_sum(train_test, 'hour', 'manager_id')
-    train_test = get_std(train_test, 'hour', 'manager_id')
+    train_test = get_mean(train_test, 'hour', ['manager_id'])
+    train_test = get_median(train_test, 'hour', ['manager_id'])
+    train_test = get_sum(train_test, 'hour', ['manager_id'])
+    train_test = get_std(train_test, 'hour', ['manager_id'])
 
-    train_test = get_mean(train_test, 'minute', 'manager_id')
-    train_test = get_median(train_test, 'minute', 'manager_id')
-    train_test = get_sum(train_test, 'minute', 'manager_id')
-    train_test = get_std(train_test, 'minute', 'manager_id')
+    train_test = get_mean(train_test, 'minute', ['manager_id'])
+    train_test = get_median(train_test, 'minute', ['manager_id'])
+    train_test = get_sum(train_test, 'minute', ['manager_id'])
+    train_test = get_std(train_test, 'minute', ['manager_id'])
 
-    train_test = get_mean(train_test, 'second', 'manager_id')
-    train_test = get_median(train_test, 'second', 'manager_id')
-    train_test = get_sum(train_test, 'second', 'manager_id')
-    train_test = get_std(train_test, 'second', 'manager_id')
+    train_test = get_mean(train_test, 'second', ['manager_id'])
+    train_test = get_median(train_test, 'second', ['manager_id'])
+    train_test = get_sum(train_test, 'second', ['manager_id'])
+    train_test = get_std(train_test, 'second', ['manager_id'])
 
-    train_test = get_mean(train_test, 'day_of_year', 'manager_id')
-    train_test = get_median(train_test, 'day_of_year', 'manager_id')
-    train_test = get_min(train_test, 'day_of_year', 'manager_id')
-    train_test = get_sum(train_test, 'day_of_year', 'manager_id')
-    train_test = get_std(train_test, 'day_of_year', 'manager_id')
+    train_test = get_mean(train_test, 'day_of_year', ['manager_id'])
+    train_test = get_median(train_test, 'day_of_year', ['manager_id'])
+    train_test = get_min(train_test, 'day_of_year', ['manager_id'])
+    train_test = get_sum(train_test, 'day_of_year', ['manager_id'])
+    train_test = get_std(train_test, 'day_of_year', ['manager_id'])
 
-    train_test = get_mean(train_test, 'day_of_week', 'manager_id')
-    train_test = get_median(train_test, 'day_of_week', 'manager_id')
-    train_test = get_sum(train_test, 'day_of_week', 'manager_id')
+    train_test = get_mean(train_test, 'day_of_week', ['manager_id'])
+    train_test = get_median(train_test, 'day_of_week', ['manager_id'])
+    train_test = get_sum(train_test, 'day_of_week', ['manager_id'])
 
     # photo features
     train_test["num_photos"] = train_test["photos"].apply(len)
@@ -267,7 +267,7 @@ if __name__ == '__main__':
     train_test["price_bed"] = train_test["price"] / (train_test["bedrooms"] + 1)
     train_test["price_bath"] = train_test["price"] / (train_test["bathrooms"] + 1)
     train_test["bed_bath_per"] = train_test["bedrooms"] / train_test["bathrooms"]
-    train_test = get_distinct_count(train_test, 'building_id', 'manager_id')
+    train_test = get_distinct_count(train_test, 'building_id', ['manager_id'])
 
     # the range place manager active
     manager_place = {}
@@ -279,7 +279,7 @@ if __name__ == '__main__':
         manager_place[man] = 10000 * ((la.max() - la.min()) * (lo.max() - lo.min()))
 
     train_test["manager_place"] = list(map(lambda x: manager_place[x], train_test["manager_id"]))  # worse
-    train_test["midu"] = train_test['distinct_count_of_building_id_by_manager_id'] / train_test[ "manager_place"]
+    train_test["midu"] = train_test['distinct_count_of_building_id_by_[\'manager_id\']'] / train_test[ "manager_place"]
     train_test.drop(['manager_place'], axis=1, inplace=True)
 
 
@@ -287,9 +287,9 @@ if __name__ == '__main__':
     train_test["time"] = list(map(lambda x, y: time_long(x, y), train_test["Month"], train_test["Day"]))
     train_test["all_hours"] = train_test["time"] * 24 + train_test["hour"]
 
-    train_test = get_distinct_count(train_test, 'time', 'manager_id')
-    train_test = get_distinct_count(train_test, 'all_hours', 'manager_id')
-    train_test["manager_hours_rt"] = train_test["distinct_count_of_all_hours_by_manager_id"] / train_test["distinct_count_of_time_by_manager_id"]
+    train_test = get_distinct_count(train_test, 'time', ['manager_id'])
+    train_test = get_distinct_count(train_test, 'all_hours', ['manager_id'])
+    train_test["manager_hours_rt"] = train_test["distinct_count_of_all_hours_by_[\'manager_id\']"] / train_test["distinct_count_of_time_by_[\'manager_id\']"]
 
     # tfidf features
     train_test = get_tfidf_vectorizer(train_test, 'display_address',
@@ -310,7 +310,7 @@ if __name__ == '__main__':
     train_test['manager_id'] = le.fit_transform(train_test['manager_id'])
     train_test['display_address'] = le.fit_transform(train_test['display_address'])
     train_test['street_address'] = le.fit_transform(train_test['street_address'])
-    train_test['mean_of_price_by_building_id_minus_price'] = train_test['mean_of_price_by_building_id'] - train_test['price']
+    train_test['mean_of_price_by_building_id_minus_price'] = train_test['mean_of_price_by_[\'building_id\']'] - train_test['price']
 
     # interaction features
     train_test['bathroomsMultiplyLatitude'] = train_test['bathrooms'] * train_test['latitude']
@@ -339,7 +339,7 @@ if __name__ == '__main__':
     train_test.sort_index(inplace=True)
 
     # remove worse and non numerical features
-    train_test.drop(['building_id', 'created', 'description', 'features', 'photos', 'Month', 'time', "all_hours", "distinct_count_of_time_by_manager_id"], axis=1, inplace=True)
+    train_test.drop(['building_id', 'created', 'description', 'features', 'photos', 'Month', 'time', "all_hours", "distinct_count_of_time_by_[\'manager_id\']"], axis=1, inplace=True)
 
     # replace useless values
     train_test.replace([-np.inf, np.inf, np.nan], [999, 999, 999], inplace=True)
