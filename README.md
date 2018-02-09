@@ -10,6 +10,7 @@ Private LB score:
 	-LightGBM 0.5074 (130/2500)
 	-Xgboost 0.5082 (140/2500)
 
+Stacking several models on these features will push you into top 10.
 
 To Run:
 	-unzip all files from db directory into db directory with original names
